@@ -27,7 +27,7 @@ function refreshMatrix(){
 
     list.innerHTML ='';
     for(key of matrix){
-        list.insertAdjacentHTML('beforeend',`<li class="tasks__item" draggable="true"><span class="list-text">${key}</span><div class="text-delete-img list-delete-button">X</div></span></li>`);
+        list.insertAdjacentHTML('beforeend',`<li class="tasks__item"><span class="list-text">${key}</span><div class="text-delete-img list-delete-button">X</div></span></li>`);
     }
 
     deleteList();
