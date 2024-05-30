@@ -1,0 +1,180 @@
+@import "../../vendors/mixins";
+@import "../../vendors/variables";
+
+.scroll-header {
+    background-color: $main-gray;
+    padding: 5px 0;
+
+    .logo-field {
+        max-width: 40px !important;
+        max-height: 40px !important;
+    }
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+
+    .header-content {
+        width: calc(100% - 100px);
+        margin: 0 auto;
+        @include flexBetween;
+
+        .logo-field {
+            transition: all 500ms ease;
+            max-width: 55px;
+            max-height: 55px;
+
+            @media(max-width: 767px) {
+                max-width: 40px;
+                max-height: 40px;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .navbar-field {
+            transition: all 500ms ease;
+            @include flex;
+            gap: 15px;
+            position: relative;
+
+            @media(max-width: 767px) {
+                gap: 3px;
+            }
+
+            .page-part {
+                @media(max-width: 767px) {
+                    display: none;
+                }
+
+                @include flex;
+                font-family: $main-font;
+                gap: 25px;
+
+                a {
+                    text-decoration: none;
+                    color: $bold-gray;
+                    line-height: 18px;
+                    font-weight: 400;
+                    font-size: 15px;
+                }
+
+            }
+
+            .icon-part {
+                transition: all 500ms ease;
+
+                @media(min-width: 767px) {
+                    border-left: 1px solid $medium-gray;
+                    padding-left: 10px;
+                }
+
+                @media(max-width: 767px) {
+                    border-right: 1px solid $medium-gray;
+                    padding-right: 13px;
+                }
+
+
+
+                button {
+                    @include button;
+                    @include flexCenter;
+                    padding: 0 !important;
+                    position: relative;
+
+                    a {
+                        text-decoration: none;
+                        @include flex;
+                        color: $bold-gray;
+
+                        svg {
+                            @include imgCover;
+                            width: 22px;
+                            height: 22px;
+                        }
+                    }
+                }
+
+                .cart-quantity {
+                    @include flexCenter;
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    font-size: 10px;
+                    color: $white;
+                    top: -7px;
+                    right: -7px;
+                    border-radius: 50%;
+                    background-color: $main-cyan;
+                }
+            }
+
+            .hamburger-menu {
+                transition: all 500ms ease;
+
+                @media(min-width: 767px) {
+                    display: none;
+                }
+
+                .hamburger-button {
+                    @include button;
+                    @include flexCenter;
+                    color: $bold-gray;
+                    width: 22px;
+                    height: 22px;
+                    padding: 0;
+
+                    svg {
+                        @include imgCover;
+                    }
+                }
+
+                .hamburger-items {
+                    z-index: 999;
+                    position: absolute;
+                    right: 21px;
+                    top: 25px;
+                    padding: 20px;
+                    opacity: 0;
+                    visibility: hidden;
+                    list-style: none;
+                    background-color: $bold-gray;
+                    transition: all 500ms ease;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    a {
+                        text-decoration: none;
+                        color: $white;
+
+                    }
+
+                    button {
+                        @include button;
+                    }
+                }
+
+                &:focus .hamburger-items {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .hamburger-active {
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                }
+            }
+
+            .active {
+                color: $main-cyan !important;
+                transition: all 200ms ease;
+            }
+        }
+    }
+}

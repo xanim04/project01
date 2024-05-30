@@ -1,0 +1,16 @@
+@import "../../vendors/mixins";
+@import "../../vendors/variables";
+
+
+footer {
+    padding: 10px;
+    text-align: center;
+
+    span {
+        font-weight: 500;
+        color: $bold-gray;
+        &:hover {
+            color: $cyan600 !important;
+        }
+    }
+}
